@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Student-Athlete Physical Activity Survey</title>
 <meta name="description" content="Student-athletes' physical activity habits and the challenges they face on campus.">
 <meta name="theme-color" content="#0e1b2c">
@@ -8,8 +8,8 @@
 <style>
 :root{--navy:#0e1b2c;--panel:#182a43;--line:#22364f;--orange:#ff6b2c;--cream:#f6f1e8;--mute:#a0b0c4}
 *{box-sizing:border-box;margin:0}
-html{overflow-x:clip;background:var(--navy);color-scheme:dark}
-body{background:var(--navy);color:var(--cream);font:400 16px/1.5 Inter,system-ui,sans-serif;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;overflow-x:hidden}
+html{background:var(--navy);color-scheme:dark}
+body{background:var(--navy);color:var(--cream);font:400 16px/1.5 Inter,system-ui,sans-serif;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;overflow-x:clip}
 button,textarea{font:inherit;color:inherit}
 :focus-visible{outline:3px solid var(--cream);outline-offset:3px}
 header{display:flex;justify-content:space-between;align-items:center;padding:24px clamp(20px,5vw,72px) 12px}
@@ -61,15 +61,30 @@ footer{padding:12px clamp(20px,5vw,72px) 24px;width:100%;max-width:1320px;margin
 @keyframes slam{from{opacity:0;transform:scale(2.4) rotate(-24deg)}}
 .ringtext{transform-origin:150px 150px;animation:spin 30s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
 a.big{display:inline-block;text-decoration:none}
-@media(max-width:800px){
+@media(max-width:560px),(max-width:800px) and (orientation:portrait){
  header{padding-top:16px}header img{width:104px}.tag{font-size:10px}
  main{grid-template-columns:minmax(0,1fr);gap:8px;align-content:start;padding-top:0}
  .art{order:-1}#stage{height:min(24vh,200px)}
  body.home #stage{height:min(38vh,320px)}
  .opts legend{margin-bottom:14px}.opt{font-size:16px;min-height:52px;padding:10px 16px}
  .lead{font-size:17px;margin-bottom:24px}
- footer{position:sticky;bottom:0;background:var(--navy);padding-bottom:10px;z-index:2}
  body.home footer,body.done footer{display:none}
+}
+footer{position:sticky;bottom:0;background:var(--navy);z-index:2;padding-bottom:max(10px,env(safe-area-inset-bottom))}
+@media(max-width:560px) and (max-height:760px){
+ header{padding:10px 20px 4px}#stage{height:17vh}body.home #stage{height:27vh}body.done #stage{height:15vh}
+ h1{font-size:clamp(29px,9vw,33px)}h2{font-size:20px}.rule{margin:14px 0}.lead{font-size:16px;margin-bottom:18px}
+ .opts{gap:8px}.opts legend{margin-bottom:10px}.opt{min-height:48px;padding:6px 14px;gap:12px;font-size:15px}
+ .big{padding:14px 26px}textarea{min-height:96px;margin-top:14px;padding:14px 16px}.stamp{width:132px;margin-bottom:12px}
+ .track{margin-bottom:0}footer{padding-top:8px}
+}
+@media(max-height:500px) and (min-width:561px){
+ header{padding-top:10px;padding-bottom:2px}main{padding-top:0;align-items:start;gap:24px}
+ .art{position:sticky;top:8px}#stage{height:62vh}
+ h1{font-size:32px}h2{font-size:20px}.rule{margin:10px 0}.lead{font-size:15px;margin-bottom:14px}
+ .opts{gap:8px}.opts legend{margin-bottom:10px}.opt{min-height:48px;padding:6px 16px;font-size:15px}
+ .big{padding:12px 24px}textarea{min-height:70px;margin-top:10px;padding:12px 16px}.stamp{width:104px;margin-bottom:8px}
+ .track{margin-bottom:0}footer{padding-top:6px;padding-bottom:0}body.home footer,body.done footer{display:none}
 }
 @media(prefers-reduced-motion:reduce){*,*::before{animation:none!important;transition:none!important}}
 </style></head>
